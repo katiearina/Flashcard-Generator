@@ -8,9 +8,16 @@ var ClozeCard = function(text, cloze) {
 	};
 };
 
+var clozeCardArray = [
+	{
+		text: "I've got a lovely bunch of coconuts",
+		cloze: "bunch"
+	}
+]
 
-var test = new ClozeCard("I've got a lovely bunch of coconuts", "bunch");
 
-test.getPartial();
+// var test = new ClozeCard("I've got a lovely bunch of coconuts", "bunch");
+
+// test.getPartial();
 
 module.exports = ClozeCard;

@@ -15,16 +15,26 @@ function BasicCard(front, back) {
 			},
 
 	]).then(function(user) {
-		console.log(question2.back);
-		if (user.question === question2.back) {
+		console.log(this.back);
+		if (user.question === this.back) {
 			console.log("You got it right!");
 		}
 		else {
-			console.log("The correct answer was: " + question2.back);
+			console.log("The correct answer was: " + this.back);
 		}
 });
 	};
 };
+
+var shakespeareBasic = new CardsChoice("basic");
+
+shakespeareBasic.addBasicCards("Test One", "Book One");
+shakespeareBasic.addBasicCards("Test Two", "Book Two");
+shakespeareBasic.addBasicCards("Test Three", "Book Three");
+
+for (var i = 0; i < shakespeareBasic.cards.length ; i++) {
+console.log(shakespeareBasic.cards[i].front);
+}
 
 
 module.exports = BasicCard;
