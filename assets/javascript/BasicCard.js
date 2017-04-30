@@ -7,6 +7,22 @@ var inquirer = require("inquirer");
 function BasicCard(front, back) {
 	this.front = front;
 	this.back = back;
+	this.playCards = function() {
+		inquirer.prompt([
+			{
+				name: "question1",
+				message: question1.front
+			},
+
+	]).then(function(user) {
+		if (user.question1.toUpperCase() === question1.back.toUpperCase()) {
+			console.log("You got it right!");
+		}
+		else {
+			console.log("The correct answer was: " + question1.back.toUpperCase());
+		}
+});
+	};
 };
 
 // Apply printCard function to all BasicCard objects
@@ -23,23 +39,24 @@ var question6 = new BasicCard("By the pricking of my thumbs, something wicked th
 var question7 = new BasicCard("There's meaning in thy snores.", "The Tempest");
 var question8 = new BasicCard("If I be waspish, best beware my sting.", "The Taming of the Shrew");
 
-function playCards() {
-inquirer.prompt([
-	{
-		name: "question1",
-		message: question1.front
-	},
+// function playCards() {
+// inquirer.prompt([
+// 	{
+// 		name: "question1",
+// 		message: question1.front
+// 	},
 
-	]).then(function(user) {
-		if (user.question1.toUpperCase() === question1.back.toUpperCase()) {
-			console.log("You got it right!");
-		}
-		else {
-			console.log("The correct answer was: " + question1.back.toUpperCase());
-		}
-});
-};
+// 	]).then(function(user) {
+// 		if (user.question1.toUpperCase() === question1.back.toUpperCase()) {
+// 			console.log("You got it right!");
+// 		}
+// 		else {
+// 			console.log("The correct answer was: " + question1.back.toUpperCase());
+// 		}
+// });
+// };
 
 
+module.exports = BasicCard;
 //---------------------------------------------------------------------------
 // FUNCTION CALLS!
