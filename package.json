@@ -1,0 +1,22 @@
+{
+  "name": "flashcardgenerator",
+  "version": "1.0.0",
+  "description": "Flashcard generator game!",
+  "main": "runCard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katiearina/Flashcard-Generator.git"
+  },
+  "author": "Katie Geckle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katiearina/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/katiearina/Flashcard-Generator#readme",
+  "dependencies": {
+    "inquirer": "^3.0.6"
+  }
+}
