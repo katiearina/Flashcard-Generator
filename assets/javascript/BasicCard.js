@@ -10,25 +10,26 @@ function BasicCard(front, back) {
 	this.playCards = function() {
 		inquirer.prompt([
 			{
-				name: "question1",
-				message: question1.front
+				name: "question",
+				message: this.front
 			},
 
 	]).then(function(user) {
-		if (user.question1.toUpperCase() === question1.back.toUpperCase()) {
+		console.log(question2.back);
+		if (user.question === question2.back) {
 			console.log("You got it right!");
 		}
 		else {
-			console.log("The correct answer was: " + question1.back.toUpperCase());
+			console.log("The correct answer was: " + question2.back);
 		}
 });
 	};
 };
 
 // Apply printCard function to all BasicCard objects
-BasicCard.prototype.printCard = function() {
-	console.log("?: " + this.front);
-};
+// BasicCard.prototype.printCard = function() {
+// 	console.log("?: " + this.front);
+// };
 
 var question1 = new BasicCard("You speak an infinite deal of nothing.", "The Merchant of Venice");
 var question2 = new BasicCard("Sweets to the sweet.", "Hamlet");
@@ -38,6 +39,8 @@ var question5 = new BasicCard("Educated men are so impressive!", "Romeo and Juli
 var question6 = new BasicCard("By the pricking of my thumbs, something wicked this way comes.", "Macbeth");
 var question7 = new BasicCard("There's meaning in thy snores.", "The Tempest");
 var question8 = new BasicCard("If I be waspish, best beware my sting.", "The Taming of the Shrew");
+
+question2.playCards();
 
 // function playCards() {
 // inquirer.prompt([

@@ -22,7 +22,8 @@ inquirer.prompt([
 			console.log("==============================================");
 			console.log("You've chosen Basic Cards! Great choice!")
 			console.log("==============================================");
-			// BasicCard.playCards();
+			var basicCards = new BasicCard();
+			basicCards.callCard();
 		}
 
   // If the user doesn't guess the password...
@@ -30,6 +31,6 @@ inquirer.prompt([
 			console.log("==============================================");
 			console.log("You've chosen Cloze Cards! Great choice!")
 			console.log("==============================================");
-			// ClozeCard.run();
+			// ClozeCard.playCards();
 		}
 });
