@@ -1,17 +1,18 @@
 var ClozeCard = function(text, cloze) {
 	this.fullText = text;
 	this.cloze = cloze;
-	this.partial = function() {
-		var str = this.fullText; 
-		var res = str.replace(this.cloze, "...");
-		console.log(res);
-	};
+	this.partial = this.fullText.replace(this.cloze, "..."); 
+		// function() {
+		// var str = this.fullText; 
+		// var res = str.replace(this.cloze, "...");
+		// console.log(res);
+	// };
 };
 
 var clozeCardArray = [
 	{
 		text: "When I am king, you will be first against the wall with your opinion / Which is of no consequence at all.",
-		cloze: "opinion"
+		cloze: "wall"
 	},
 	{
 		text: "Karma police, arrest this man / He talks in maths / He buzzes like a fridge / He’s like a detuned radio.",
@@ -37,11 +38,18 @@ var clozeCardArray = [
 
 var array = [];
 
+function runClozeCards() {
 for (var i = 0; i < clozeCardArray.length; i++){
 var test = new ClozeCard(clozeCardArray[i].text, clozeCardArray[i].cloze);
-
-test.partial();
-
+	array.push(test);
+	// test.partial();
+	console.log(array[i].partial);
+}
 };
 
+// console.log(array);
+
 module.exports = ClozeCard;
+module.exports = runClozeCards;
+
+runClozeCards();
