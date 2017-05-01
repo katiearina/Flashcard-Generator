@@ -9,7 +9,8 @@ var CardsChoice = function(type) {
 	this.cards = [];
 	this.type = type;
 
-	inquirer.prompt([
+	this.cardType = function() {
+		inquirer.prompt([
 
 	{
 		type: "list",
@@ -20,42 +21,53 @@ var CardsChoice = function(type) {
 
 	]).then(function(user) {
 
-	if (type === "Basic")
+	if (type === "Basic") {
 
 	this.addBasicCards = function(front, back) {
 		this.cards.push(new BasicCard(front, back));
 	};
+}
 
+	else {
 	this.addClozeCards = function(text, cloze) {
-		this.cards.push(new ClozeCard(text, cloze));
+		this.cards.push(test);
+		console.log(cards);
 	};
+}
+		// this.cards.push(new ClozeCard(text, cloze));
+	});
+};
 };
 
+var userChoice = new CardsChoice();
+
+module.exports = CardsChoice;
+
 // Created a series of questions
-inquirer.prompt([
+// inquirer.prompt([
 
-	{
-		type: "list",
-		name: "whatType",
-		message: "What type of flashcard would you like?",
-		choices: ["Basic cards, please!", "I'm advanced, give me those cloze cards"]
-	}
+// 	{
+// 		type: "list",
+// 		name: "whatType",
+// 		message: "What type of flashcard would you like?",
+// 		choices: ["Basic cards, please!", "I'm advanced, give me those cloze cards"]
+// 	}
 
-]).then(function(user) {
+// ]).then(function(user) {
 
-	// If the user guesses the password...
-		if (user.whatType === "Basic cards, please!") {
-			console.log("==============================================");
-			console.log("You've chosen Basic Cards! Great choice!")
-			console.log("==============================================");
-			BasicCard.playCards();
-		}
+// 	// If the user guesses the password...
+// 		if (user.whatType === "Basic cards, please!") {
+// 			console.log("==============================================");
+// 			console.log("You've chosen Basic Cards! Great choice!")
+// 			console.log("==============================================");
+// 			BasicCard.playCards();
+// 		}
 
-  // If the user doesn't guess the password...
-		else if (user.whatType === "I'm advanced, give me those cloze cards") {
-			console.log("==============================================");
-			console.log("You've chosen Cloze Cards! Great choice!")
-			console.log("==============================================");
-			// ClozeCard.playCards();
-		}
-});
+//   // If the user doesn't guess the password...
+// 		else if (user.whatType === "I'm advanced, give me those cloze cards") {
+// 			console.log("==============================================");
+// 			console.log("You've chosen Cloze Cards! Great choice!")
+// 			console.log("==============================================");
+// 			// ClozeCard.playCards();
+// 		}
+// });

@@ -1,6 +1,7 @@
 //---------------------------------------------------------------------------
 // VARIABLE DECLARATIONS!
 var inquirer = require("inquirer");
+var CardsChoice = require("./runCards.js");
 
 //---------------------------------------------------------------------------
 // FUNCTION DECLARATIONS!

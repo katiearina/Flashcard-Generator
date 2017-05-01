@@ -1,7 +1,7 @@
 var ClozeCard = function(text, cloze) {
 	this.fullText = text;
 	this.cloze = cloze;
-	this.getPartial = function() {
+	this.partial = function() {
 		var str = this.fullText; 
 		var res = str.replace(this.cloze, "...");
 		console.log(res);
@@ -10,14 +10,38 @@ var ClozeCard = function(text, cloze) {
 
 var clozeCardArray = [
 	{
-		text: "I've got a lovely bunch of coconuts",
-		cloze: "bunch"
+		text: "When I am king, you will be first against the wall with your opinion / Which is of no consequence at all.",
+		cloze: "opinion"
+	},
+	{
+		text: "Karma police, arrest this man / He talks in maths / He buzzes like a fridge / He’s like a detuned radio.",
+		cloze: "fridge"
+	},
+	{
+		text: "Ice age coming, throw him in that fire / We’re not scaremongering / This is really happening.",
+		cloze: "fire"
+	},
+	{
+		text: "This is my final fit, my final bellyache / With no alarms and no surprises.",
+		cloze: "alarms"
+	},
+	{
+		text: "y thoughts are misguided and a little naive / I twitch and I salivate like with myxomatosis / You should put me in a home or you should put me down.",
+		cloze: "twitch"
+	},
+	{
+		text: "It’s the devil’s way now / There is no way out / You can scream and you can shout / It is too late now.",
+		cloze: "devil"
 	}
 ]
 
+var array = [];
 
-// var test = new ClozeCard("I've got a lovely bunch of coconuts", "bunch");
+for (var i = 0; i < clozeCardArray.length; i++){
+var test = new ClozeCard(clozeCardArray[i].text, clozeCardArray[i].cloze);
 
-// test.getPartial();
+test.partial();
+
+};
 
 module.exports = ClozeCard;
