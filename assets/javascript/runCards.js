@@ -1,16 +1,16 @@
 var inquirer = require("inquirer");
-var BasicCard = require("./BasicCard.js");
-var ClozeCard = require("./ClozeCard.js");
+// var BasicCard = require("./BasicCard.js");
+// var ClozeCard = require("./ClozeCard.js");
 
 // Load the NPM Package inquirer
 var inquirer = require("inquirer");
 
-var CardsChoice = function(type) {
-	this.cards = [];
-	this.type = type;
+// var CardsChoice = function(type) {
+// 	this.cards = [];
+// 	this.type = type;
 
-	this.cardType = function() {
-		inquirer.prompt([
+// 	this.cardType = function() {
+inquirer.prompt([
 
 	{
 		type: "list",
@@ -21,27 +21,29 @@ var CardsChoice = function(type) {
 
 	]).then(function(user) {
 
-	if (type === "Basic") {
+	if (user.whatType === "Basic cards, please!") {
+		console.log("Basic bee");
 
-	this.addBasicCards = function(front, back) {
-		this.cards.push(new BasicCard(front, back));
-	};
-}
+	// this.addBasicCards = function(front, back) {
+	// 	this.cards.push(new BasicCard(front, back));
+	// };
+	}
 
 	else {
-	this.addClozeCards = function(text, cloze) {
-		this.cards.push(test);
-		console.log(cards);
-	};
-}
+		console.log("Cloze, eh? Okay!");
+		var ClozeCard = require("./ClozeCard.js");
+		ClozeCard;
+	}
 		// this.cards.push(new ClozeCard(text, cloze));
 	});
-};
-};
+// };
+// };
 
-var userChoice = new CardsChoice();
+// CardsChoice.cardType();
 
-module.exports = CardsChoice;
+// var userChoice = new CardsChoice();
+
+// module.exports = CardsChoice;
 
 // Created a series of questions
 // inquirer.prompt([

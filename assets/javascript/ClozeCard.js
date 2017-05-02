@@ -1,3 +1,5 @@
+var inquirer = require("inquirer");
+
 var ClozeCard = function(text, cloze) {
 	this.fullText = text;
 	this.cloze = cloze;
@@ -27,7 +29,7 @@ var clozeCardArray = [
 		cloze: "alarms"
 	},
 	{
-		text: "y thoughts are misguided and a little naive / I twitch and I salivate like with myxomatosis / You should put me in a home or you should put me down.",
+		text: "My thoughts are misguided and a little naive / I twitch and I salivate like with myxomatosis / You should put me in a home or you should put me down.",
 		cloze: "twitch"
 	},
 	{
@@ -36,20 +38,49 @@ var clozeCardArray = [
 	}
 ]
 
-var array = [];
+var clozeConstructorArray = [];
+
+for (var i = 0; i < clozeCardArray.length; i++) {
+	var newCard = new ClozeCard(clozeCardArray[i].text, clozeCardArray[i].cloze);
+	clozeConstructorArray.push(newCard);
+}
+
+var cardCount = 0;
 
 function runClozeCards() {
-for (var i = 0; i < clozeCardArray.length; i++){
-var test = new ClozeCard(clozeCardArray[i].text, clozeCardArray[i].cloze);
-	array.push(test);
-	// test.partial();
-	console.log(array[i].partial);
+	if (cardCount < clozeCardArray.length) {
+
+	console.log("==============================");
+		inquirer.prompt([
+			{
+				name: "flashcard",
+				message: clozeConstructorArray[cardCount].partial
+			},
+		]).then(function(user) {
+			if (user.flashcard.toUpperCase() === clozeConstructorArray[cardCount].cloze.toUpperCase()) {
+				console.log("============================== \nYou got it right!\n-------------------------\n" + 
+					clozeConstructorArray[cardCount].fullText);
+			}
+			else {
+				console.log("============================== \nAw, dang!\nThe correct answer was actually: " + 
+					clozeConstructorArray[cardCount].cloze.toUpperCase() + "\n-------------------------\n" + clozeConstructorArray[cardCount].fullText);
+			}
+
+	cardCount++;
+
+	runClozeCards();
+
+		});
+
 }
+	else {
+		console.log("============================== \nYou've gone through all the flashcards! Great work! Thom Yorke would be proud of you!\n==============================")
+	}
 };
 
 // console.log(array);
 
 module.exports = ClozeCard;
-module.exports = runClozeCards;
+module.exports = runClozeCards();
 
-runClozeCards();
+// runClozeCards();
